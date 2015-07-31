@@ -6,7 +6,7 @@ function getquery(value) {
         alert("Browser does not support HTTP Request")
         return
     }
-    var url = "query.php"
+    var url = "query_db.php"
     var query_server = value
     url = url + "?q=" + query_server + "&sid=" + Math.random()
     xmlHttp.onreadystatechange = stateChanged

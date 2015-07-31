@@ -34,7 +34,7 @@ class ServerList
     public function echoCheckbox()
     {
         echo '
-      <input type="checkbox" name="selected_server" value='.$this->server_name.'>'.$this->alias_name.'
+      <input type="radio" name="selected_server" value='.$this->server_name.'>'.$this->alias_name.'
       <br>
       ';
     }
@@ -54,19 +54,32 @@ mysql_select_db(constant('DB_NAME'), $con) or die(mysql_error());
 $sql = 'select * from '.constant('DB_TABLE').' where state = "normal" order by id';
 $result = mysql_query($sql) or die('Query failed: '.mysql_error().' Actual query: '.$sql);
 
-
 /* html输出form */
-echo '<form class="formcss" action="query_db.php" method="get">';
+echo '<form name="server_selecter" class="formcss" action="query_db.php" method="get">';
 
 while ($row = mysql_fetch_array($result)) {
     $serverarray[$row['id']] = new ServerList($row['id'], $row['server_name'], $row['alias_name'], $row['description'], $row['state']);
     $serverarray[$row['id']]->echoCheckbox();
 }
 
-echo '<input type="submit" name="submit" value="提交">
+echo '<input type="button" name="submit" value="提交查询" onclick="getquery('.'\'198.35.46.1\''.')">
 
 
 </form>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

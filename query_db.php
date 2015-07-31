@@ -1,11 +1,11 @@
 <?php
 
 /* The name of the database */
-define('DB_NAME', 'needforping2');
+define('DB_NAME', 'needforping3');
 /* MySQL database username */
-define('DB_USER', 'needforping2');
+define('DB_USER', 'needforping3');
 /* MySQL database password */
-define('DB_PASSWORD', 'needforping2');
+define('DB_PASSWORD', '5umAQXVrLUsrqW5P');
 /* MySQL database table */
 define('DB_TABLE', 'pingresult');
 
@@ -40,9 +40,29 @@ ksort($query_DATA['rtt_avg']);
  /* 将查询的关键词与查询结果合并，并输出json */
 $query_data = array('server_name' => $q);
 $query_data = array_merge($query_data, $query_DATA);
+//var_dump ($query_data);
 echo json_encode($query_data);
 
 mysql_close($con);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function pingresult_clean($q)
 {
