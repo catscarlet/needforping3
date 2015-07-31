@@ -1,9 +1,8 @@
-<!DOCTYPE HTML>
 <html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Need For Ping 2</title>
+	<title>Need For Ping 3</title>
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
 	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
@@ -15,6 +14,14 @@
 	<script src="js/highcharts/highcharts.js"></script>
 	<script src="js/highcharts/modules/exporting.js"></script>
 
+	<?php
+//echo "php";
+
+require 'query_pinglist.php'
+
+?>
+
+		<!--
 	<p>
 		<form>
 			<input type="radio" name="selecter" onclick="getquery('server2.catscarlet.com')">server2.catscarlet.com
@@ -41,6 +48,7 @@
 
 	<p>博客地址：<a href="http://blog.catscarlet.com"> http://blog.catscarlet.com</a></p>
 	<p>Github：<a href="https://github.com/catscarlet/needforping"> https://github.com/catscarlet/needforping2</a></p>
+-->
 
 </body>
 
