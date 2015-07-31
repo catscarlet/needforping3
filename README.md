@@ -6,6 +6,7 @@
 编辑中......
 
 ## 软件截图
+编辑中......
 ![needforping3 logo](https://github.com/catscarlet/needforping3/blob/master/snapshot.png)
 
 ## 安装
