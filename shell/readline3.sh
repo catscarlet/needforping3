@@ -2,7 +2,7 @@
 i=0
 OUTPUT=$2
 MYSQL_USER=needforping3
-MYSQL_USER_PASSWORD=needforping3
+MYSQL_USER_PASSWORD=5umAQXVrLUsrqW5P
 
 function output_to_mysql() {
 #    echo { "\"The server is "\":"\"$THESERVER"\" ,"\"TIME"\":"\"$DATETIME"\" , "\"LOSS"\":"\"$LOSS"\" , "\"min"\":"\"$min"\" , "\"avg"\":"\"$avg"\" , "\"max"\":"\"$max"\"}
