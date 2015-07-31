@@ -1,10 +1,12 @@
 # Need For Ping 3
 项目Need For Ping 2 [https://github.com/catscarlet/needforping2](https://github.com/catscarlet/needforping2) 的升级版
 
+目的在于解决多组显示，相对于前一个版本，将要使用php进行动态页面生成。
+
 编辑中......
 
 ## 软件截图
-编辑中......
+![needforping3 logo](https://github.com/catscarlet/needforping3/blob/master/snapshot.png)
 
 ## 安装
 ### 全新安装
