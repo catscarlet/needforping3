@@ -1,12 +1,12 @@
 #!/bin/bash
 i=0
 OUTPUT=$2
-MYSQL_USER=needforping2
-MYSQL_USER_PASSWORD=needforping2
+MYSQL_USER=needforping3
+MYSQL_USER_PASSWORD=needforping3
 
 function output_to_mysql() {
 #    echo { "\"The server is "\":"\"$THESERVER"\" ,"\"TIME"\":"\"$DATETIME"\" , "\"LOSS"\":"\"$LOSS"\" , "\"min"\":"\"$min"\" , "\"avg"\":"\"$avg"\" , "\"max"\":"\"$max"\"}
-	MYSQL_COMMAND="INSERT INTO needforping2.pingresult (id, server_name, DATETIME, loss_percent, rtt_min, rtt_avg, rtt_max) VALUES (NULL, \"$THESERVER\", \"$DATETIME\", \"$LOSS\", \"$min\", \"$avg\", \"$max\");"
+	MYSQL_COMMAND="INSERT INTO needforping3.pingresult (id, server_name, DATETIME, loss_percent, rtt_min, rtt_avg, rtt_max) VALUES (NULL, \"$THESERVER\", \"$DATETIME\", \"$LOSS\", \"$min\", \"$avg\", \"$max\");"
 	mysql -u$MYSQL_USER -p$MYSQL_USER_PASSWORD -e "$MYSQL_COMMAND"
 }
 

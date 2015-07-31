@@ -1,8 +1,8 @@
 #!/bin/sh
-needforping2_DIR=/var/www/needforping2
+needforping3_DIR=/var/www/needforping3
 
-TMP_DIR=/$needforping2_DIR/shell/pingresult
-SERVER_LIST=/$needforping2_DIR/shell/server_list.txt
+TMP_DIR=/$needforping3_DIR/shell/pingresult
+SERVER_LIST=/$needforping3_DIR/shell/server_list.txt
 line=$1
 OUTPUTTXT=$TMP_DIR/ping_$line.txt
 OUTPUTTMP=$TMP_DIR/ping_$line.tmp
@@ -15,4 +15,4 @@ OUTPUTFORJS=$TMP_DIR/$line.json
   echo $DATETIME >> $OUTPUTTXT
   ping -c 100 $line |tail -n 3 >> $OUTPUTTXT
 
-  $needforping2_DIR/shell/readline2.sh $OUTPUTTXT $OUTPUTTMP
+  $needforping3_DIR/shell/readline3.sh $OUTPUTTXT $OUTPUTTMP
