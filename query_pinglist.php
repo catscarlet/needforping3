@@ -42,8 +42,6 @@ class ServerList
 $serverarray = array();
 //$serverlist = new ServerList();
 
-
-//$q = $_GET['q'];
 $con = mysql_connect('localhost', constant('DB_USER'), constant('DB_PASSWORD'));
 if (!$con) {
     die('Could not connect: '.mysql_error());
@@ -62,7 +60,7 @@ while ($row = mysql_fetch_array($result)) {
     $serverarray[$row['id']]->echoCheckbox();
 }
 
-echo '<input type="button" name="submit" value="提交查询" onclick="getquery('.'\'198.35.46.1\''.')">
+echo '<input type="button" name="submit" value="提交查询" onclick="getquery()">
 
 
 </form>';

@@ -1,6 +1,7 @@
 var xmlHttp
 
-function getquery(value) {
+function getquery() {
+    value = server_selecter.selected_server.value
     xmlHttp = GetXmlHttpObject()
     if (xmlHttp == null) {
         alert("Browser does not support HTTP Request")
