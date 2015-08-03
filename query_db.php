@@ -9,7 +9,9 @@ define('DB_PASSWORD', '5umAQXVrLUsrqW5P');
 /* MySQL database table */
 define('DB_TABLE', 'pingresult');
 
-$q = $_GET['q'];
+
+
+
 $con = mysql_connect('localhost', constant('DB_USER'), constant('DB_PASSWORD'));
 if (!$con) {
     die('Could not connect: '.mysql_error());
@@ -19,9 +21,21 @@ mysql_select_db(constant('DB_NAME'), $con);
  /* 查询范围 */
 $query_range = 720;
 
- /* 数据库清理函数 */
-//pingresult_clean($q);
+$q_array = $_GET['q'];
 
+if (is_array($q_array)) {
+  foreach ($q_array as $q) {
+  query_db($q,$query_range);
+  }
+} else {
+  $q = $q_array;
+  query_db($q,$query_range);
+}
+
+
+
+function query_db($q,$query_range)
+{
 $sql = 'select * from '.constant('DB_TABLE')." where server_name = '".$q."' order by DATETIME DESC LIMIT $query_range";
 $result = mysql_query($sql);
 $i = min($query_range, mysql_num_rows($result));
@@ -42,5 +56,7 @@ $query_data = array('server_name' => $q);
 $query_data = array_merge($query_data, $query_DATA);
 //var_dump ($query_data);
 echo json_encode($query_data);
+}
+
 
 mysql_close($con);
