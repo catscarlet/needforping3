@@ -1,19 +1,53 @@
 var xmlHttp;
 
-function getquery() {
-   value = server_selecter.selected_server.value
+function GetCheckbox() {
+  //value = new Array("23.252.100.110","104.224.133.143");
+  //return value;
+  checkbox = document.getElementsByName('q[]');
+  var value = new Array();
+  for (i = 0, j = 0 ; i < checkbox.length ; i++) {
+    if (checkbox[i].checked) {
+      //alert(checkbox[i].value);
+      value[j] = checkbox[i].value;
+      j++;
+    }
 
+    //value = server_selecter.selected_server.value
+
+  }
+  //alert(value);
+  return value;
+
+}
+
+function getquery() {
+  //value = new Array("23.252.100.110","104.224.133.143");
+  var value = GetCheckbox();
+  var url = 'query_db.php?';
+  //alert(value);
   xmlHttp = GetXmlHttpObject();
   if (xmlHttp == null) {
     alert('Browser does not support HTTP Request');
     return;
   }
-  var url = 'query_db.php';
-  var query_server = value;
-  url = url + '?q=' + query_server + '&sid=' + Math.random();
+
+  //var query_server = value;
+  GroupQueryUrl(url, value);
+
+}
+
+function GroupQueryUrl(url, value) {
+
+  for (i = 0; i < value.length ; i++) {
+    url = url + '&q[]=' + value[i];
+  }
+  //  url = url + = url + '?q=' + query_server + '&sid=' + Math.random();
+  url = encodeURI(url + '&sid=' + Math.random());
+  //alert(url);
   xmlHttp.onreadystatechange = stateChanged;
   xmlHttp.open('GET', url, true);
   xmlHttp.send(null);
+
 }
 
 function GetXmlHttpObject() {

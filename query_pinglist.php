@@ -31,12 +31,18 @@ class ServerList
         return 'This is "'.$this->server_name.'"<br>';
     }
 
-    public function echoCheckbox()
+    public function echoCheckbox($i)
     {
         echo '
-      <input type="radio" name="selected_server" value='.$this->server_name.'>'.$this->alias_name.'
+      <input type="checkbox" id="'.$i.'" name="q[]" value="'.$this->server_name.'"> '.$this->alias_name.'
       <br>
       ';
+      /*
+      echo '
+      <input type="radio" id="selected_serverid" name="selected_server" value='.$this->server_name.'>'.$this->alias_name.'
+      <br>
+      ';
+      */
     }
 }
 $serverarray = array();
@@ -55,12 +61,14 @@ $result = mysql_query($sql) or die('Query failed: '.mysql_error().' Actual query
 /* html输出form */
 echo '<form name="server_selecter" class="formcss" action="query_db.php" method="get">';
 
+$i = 0;
 while ($row = mysql_fetch_array($result)) {
     $serverarray[$row['id']] = new ServerList($row['id'], $row['server_name'], $row['alias_name'], $row['description'], $row['state']);
-    $serverarray[$row['id']]->echoCheckbox();
+    $serverarray[$row['id']]->echoCheckbox($i);
+    ++$i;
 }
 
 echo '<input type="button" name="submit" value="提交查询" onclick="getquery()">
-
+<input type="submit" name="submit" value="提交">
 
 </form>';
