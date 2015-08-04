@@ -1,42 +1,41 @@
-var xmlHttp
+var xmlHttp;
 
 function getquery() {
-    value = server_selecter.selected_server.value
-    xmlHttp = GetXmlHttpObject()
-    if (xmlHttp == null) {
-        alert("Browser does not support HTTP Request")
-        return
-    }
-    var url = "query_db.php"
-    var query_server = value
-    url = url + "?q=" + query_server + "&sid=" + Math.random()
-    xmlHttp.onreadystatechange = stateChanged
-    xmlHttp.open("GET", url, true)
-    xmlHttp.send(null)
-}
+   value = server_selecter.selected_server.value
 
+  xmlHttp = GetXmlHttpObject();
+  if (xmlHttp == null) {
+    alert('Browser does not support HTTP Request');
+    return;
+  }
+  var url = 'query_db.php';
+  var query_server = value;
+  url = url + '?q=' + query_server + '&sid=' + Math.random();
+  xmlHttp.onreadystatechange = stateChanged;
+  xmlHttp.open('GET', url, true);
+  xmlHttp.send(null);
+}
 
 function GetXmlHttpObject() {
-    var xmlHttp = null;
+  var xmlHttp = null;
+  try {
+    // Firefox, Opera 8.0+, Safari
+    xmlHttp = new XMLHttpRequest();
+  } catch (e) {
+    //Internet Explorer
     try {
-        // Firefox, Opera 8.0+, Safari
-        xmlHttp = new XMLHttpRequest();
+      xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
     } catch (e) {
-        //Internet Explorer
-        try {
-            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
-            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+      xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
     }
-    return xmlHttp;
+  }
+  return xmlHttp;
 }
 
-
 function stateChanged() {
-    if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
-        window.obj = eval("(" + xmlHttp.responseText + ")");
-        draw_LOSS();
-        draw_LATENCY();
-    }
+  if (xmlHttp.readyState == 4 || xmlHttp.readyState == 'complete') {
+    window.obj = eval('(' + xmlHttp.responseText + ')');
+    draw_LOSS();
+    draw_LATENCY();
+  }
 }
