@@ -6,16 +6,17 @@
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
 	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/getquery.js"></script>
+	<script type="text/javascript" src="js/draw_LOSS.js"></script>
+	<script type="text/javascript" src="js/draw_LATENCY.js"></script>
+	<script type="text/javascript" src="js/draw_charts.js"></script>
+	<script src="js/highcharts/highcharts.js"></script>
+	<script src="js/highcharts/modules/exporting.js"></script>
 
 </head>
 
 <body>
-	<script type="text/javascript" src="./js/getquery.js"></script>
 
-	<script type="text/javascript" src="js/draw_LOSS.js"></script>
-	<script type="text/javascript" src="js/draw_LATENCY.js"></script>
-	<script src="js/highcharts/highcharts.js"></script>
-	<script src="js/highcharts/modules/exporting.js"></script>
 
 	<?php
 //echo "php";
