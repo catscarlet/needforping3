@@ -19,14 +19,10 @@ mysql_select_db(constant('DB_NAME'), $con);
 $query_range = 360;
  /* 确认查询单个radio还是数组checkbox */
 $q_array = $_GET['q'];
-if (is_array($q_array)) {
-    foreach ($q_array as $q) {
-        query_db($q, $query_range);
+    foreach ($q_array as $id => $q) {
+        $query_output[$id] = query_db($q, $query_range);
     }
-} else {
-    $q = $q_array;
-    query_db($q, $query_range);
-}
+echo json_encode($query_output);
 
 function query_db($q, $query_range)
 {
@@ -45,11 +41,11 @@ function query_db($q, $query_range)
     ksort($query_DATA['loss_percent']);
     ksort($query_DATA['rtt_avg']);
 
- /* 将查询的关键词与查询结果合并，并输出json */
+ /* 将查询的关键词与查询结果合并*/
     $query_data = array('server_name' => $q);
     $query_data = array_merge($query_data, $query_DATA);
-//var_dump ($query_data);
-    echo json_encode($query_data);
+
+    return $query_data;
 }
 
 mysql_close($con);
