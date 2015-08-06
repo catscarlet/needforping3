@@ -21,7 +21,7 @@
   needforping2_DIR=/var/www/needforping2
   ```
 
-  （如有必要）readline3.sh需要修改数据库
+  （如有必要）readline3.sh和其他php文件需要修改数据库
 
   ```
   MYSQL_USER=needforping3
@@ -54,18 +54,18 @@ mysql> show COLUMNS from pinglist;
 - 手动在crontab中添加类似：
 
   ```
-
   _/2 _   _ _ *   root    /var/www/needforping3/shell/needforping3.sh
+  ```
 
-```
 ### 升级
 本项目不支持从旧版本升级，不支持needforping3各commit版本升级。如需升级，请自行diff数据库结构变化。
 
 ## 配置
 目前由query.php参数$query_range控制最大输出数据量，目前默认是半天；
-```
 
- /_ 查询范围 _/ $query_range = 360; ```
+```
+$query_range = 360;
+```
 
 ## 代码组成
 ### Bash部分
@@ -96,9 +96,13 @@ shell部分每2分钟向目的机ping 100个包，收集延迟和丢包率，并
 ## 已知缺陷
 - 没有模块化：目前整个项目是完全独立的，不便于安装在其他已模块化的模板上
 - 时间范围：目前以显示记录时间范围作为显示范围，也就是说如果我在最近24小时之内关机或停用此功能1小时，那么我继续查询24小时范围内数据的话，会从之前第25小时开始显示，没有数据的1小时无法体现，横坐标轴伪连续。
+- 查询范围：查询范围需要修改底层php文件
+- 数据库清理：数据库没有定时清理
+- ping列表更新：现在需要维护两套列表，shell读取的server_list和mysql中的pinglist
 
 ## TODO
 - 增加cookie，每次打开页面后，直接显示上次查询的选项和结果
 - 增加查询时间范围选择，修复时间范围伪连续的问题
 - 模块化
-- 优化排版
+- 优化页面显示
+- 其他细节
