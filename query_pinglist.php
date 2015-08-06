@@ -25,17 +25,17 @@ class ServerList
         $this->description = $description;
         $this->state = $state;
     }
-
+/*
     public function echoMySelf()
     {
         return 'This is "'.$this->server_name.'"<br>';
     }
-
+*/
     public function echoCheckbox($i)
     {
-        echo '
-      <input type="checkbox" id="'.$i.'" name="q[]" value="'.$this->server_name.'"> '.$this->alias_name.'
-      <br>
+        echo '<tr><td>
+      <input type="checkbox" id="'.$i.'" name="q[]" value="'.$this->server_name.'"> '.$this->alias_name.'</td><td>'.$this->server_name.'</td>
+      </tr>
       ';
     }
 }
@@ -54,6 +54,7 @@ $result = mysql_query($sql) or die('Query failed: '.mysql_error().' Actual query
 
 /* html输出form */
 echo '<form name="server_selecter" class="formcss" action="query_db.php" method="get">';
+echo '<table border="0">';
 
 $i = 0;
 while ($row = mysql_fetch_array($result)) {
@@ -61,6 +62,6 @@ while ($row = mysql_fetch_array($result)) {
     $serverarray[$row['id']]->echoCheckbox($i);
     ++$i;
 }
-
+echo '</table>';
 echo '<input type="button" name="submit" value="提交查询" onclick="getquery()">
 </form>';
