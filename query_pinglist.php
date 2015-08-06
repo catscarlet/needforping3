@@ -37,12 +37,6 @@ class ServerList
       <input type="checkbox" id="'.$i.'" name="q[]" value="'.$this->server_name.'"> '.$this->alias_name.'
       <br>
       ';
-      /*
-      echo '
-      <input type="radio" id="selected_serverid" name="selected_server" value='.$this->server_name.'>'.$this->alias_name.'
-      <br>
-      ';
-      */
     }
 }
 $serverarray = array();
@@ -69,6 +63,4 @@ while ($row = mysql_fetch_array($result)) {
 }
 
 echo '<input type="button" name="submit" value="提交查询" onclick="getquery()">
-<input type="submit" name="submit" value="提交">
-
 </form>';
