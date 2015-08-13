@@ -17,7 +17,7 @@ mysql_select_db(constant('DB_NAME'), $con);
 
  /* 查询范围 */
 $query_range = 360;
- /* 确认查询单个radio还是数组checkbox */
+
 $q_array = $_GET['q'];
     foreach ($q_array as $id => $q) {
         $query_output[$id] = query_db($q, $query_range);
