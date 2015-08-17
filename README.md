@@ -1,4 +1,8 @@
 # Need For Ping 3
+
+**该项目已废弃，所有工作已转移到
+[Need For Ping](https://github.com/catscarlet/needforpingthinksmarty)，请前往新项目。**
+
 ## 简介
 项目[Need For Ping 2](https://github.com/catscarlet/needforping2) 的升级版
 
