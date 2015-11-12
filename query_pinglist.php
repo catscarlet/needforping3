@@ -65,3 +65,4 @@ while ($row = mysql_fetch_array($result)) {
 echo '</table>';
 echo '<input type="button" name="submit" value="提交查询" onclick="getquery()">
 </form>';
+mysql_close($con);
