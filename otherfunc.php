@@ -1,4 +1,5 @@
 <?php
+
 function pingresult_clean($q)
 {
     $sql = 'select COUNT(*) from '.constant('DB_TABLE')." where state = 'normal' and server_name =  '".$q."'";
@@ -23,4 +24,3 @@ function pingresult_clean($q)
         mysql_query($sql);
     }
 }
-/>
