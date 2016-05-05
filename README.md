@@ -91,11 +91,7 @@ shell部分每2分钟向目的机ping 100个包，收集延迟和丢包率，并
 - query_db.php部分负责从pingresult读取数据并输出json格式
 
 ## 项目展示
-展示地址：[http://pi.catscarlet.com:8091/needforping3/](http://pi.catscarlet.com:8091/needforping3/)
-
-这个地址是一个插在北京联通宽带上的树莓派，偶尔会关机，打不开很正常。
-
-未来可能会提供长期稳定的demo展示地址。
+无
 
 ## 已知缺陷
 - 没有模块化：目前整个项目是完全独立的，不便于安装在其他已模块化的模板上
